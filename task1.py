@@ -2,10 +2,10 @@ import imaplib
 import email
 import os
 
-user = input("Plesae enter Gmail id : ")
+user = input("Plesae enter Outlook id : ")
 password = input("Please enter your password : ")
-attachment_dir = input("Enter path of directory : ")
-imap_url = 'imap.gmail.com'
+attachment_dir = input("Enter directory path : ")
+imap_url = 'imap.outlook.com'
 
 con = imaplib.IMAP4_SSL(imap_url)
 con.login(user, password)
