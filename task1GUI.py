@@ -7,7 +7,7 @@ from tkinter import filedialog
 def fetchAttachments():
     user = userEntry.get()
     password = passwordEntry.get()
-    attachment_dir = browseEntry.get()
+    attachment_dir = dirr
 
     imap_url = 'imap.outlook.com'
 
@@ -45,6 +45,7 @@ def fetchAttachments():
     print("{} Files downloaded".format(count))
 
 def browsefunc():
+    global dirr
     dirr = filedialog.askdirectory()
     pathlabel.config(text=dirr)
 
