@@ -15,10 +15,10 @@ def fetchAttachments():
     con.login(user, password)
     con.select('Inbox')
 
-    type, msgs = con.search(None,'UNSEEN', '(SUBJECT "Resume")')
+    type, msgs = con.search(None,'UNSEEN','(SUBJECT "Resume")')
     msgs = msgs[0].split()
-    
     count = 0
+
     for msg in msgs:
         resp, data = con.fetch(msg, "(RFC822)")
         email_body = data[0][1]
@@ -42,8 +42,11 @@ def fetchAttachments():
                     fp = open(save_path, 'wb')
                     fp.write(part.get_payload(decode=True))
                     fp.close()
-    print("{} Files downloaded".format(count)                
+    print("{} Files downloaded".format(count))
 
+def browsefunc():
+    dirr = filedialog.askdirectory()
+    pathlabel.config(text=dirr)
 
 
 window = Tk()
@@ -58,12 +61,8 @@ userEntry.grid(row=0, column=1)
 
 password_label = Label(window, text = "PASSWORD  ", bg = "light green")
 password_label.grid(row = 1, column = 0, padx = 0, pady = 10)
-passwordEntry = Entry(window,textvariable = "password",show = "*", width = 20)
+passwordEntry = Entry(window, textvariable = 'password', show = "*",width = 20)
 passwordEntry.grid(row = 1, column = 1)
-
-def browsefunc():
-    dirr = filedialog.askdirectory()
-    pathlabel.config(text=dirr)
 
 browseButton = Button(window, text="Browse", command=browsefunc)
 browseButton.grid(row = 2, column = 0, padx = 0, pady = 10)
