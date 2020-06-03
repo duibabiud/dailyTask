@@ -17,7 +17,8 @@ def fetchAttachments():
 
     type, msgs = con.search(None,'UNSEEN', '(SUBJECT "Resume")')
     msgs = msgs[0].split()
-
+    
+    count = 0
     for msg in msgs:
         resp, data = con.fetch(msg, "(RFC822)")
         email_body = data[0][1]
@@ -36,10 +37,12 @@ def fetchAttachments():
             if filename is not None:
                 save_path = os.path.join(attachment_dir, filename)
                 if not os.path.isfile(save_path):
-                    print(save_path)
+                    #print(save_path)
+                    count += 1
                     fp = open(save_path, 'wb')
                     fp.write(part.get_payload(decode=True))
                     fp.close()
+    print("{} Files downloaded".format(len(msgs)))                
 
 
 
