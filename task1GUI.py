@@ -55,7 +55,7 @@ userEntry.grid(row=0, column=1)
 
 password_label = Label(window, text = "PASSWORD  ", bg = "light green")
 password_label.grid(row = 1, column = 0, padx = 0, pady = 10)
-passwordEntry = Entry(window, width = 20)
+passwordEntry = Entry(window,textvaraible = "password",show = "*"  width = 20)
 passwordEntry.grid(row = 1, column = 1)
 
 def browsefunc():
