@@ -42,7 +42,7 @@ def fetchAttachments():
                     fp = open(save_path, 'wb')
                     fp.write(part.get_payload(decode=True))
                     fp.close()
-    print("{} Files downloaded".format(len(msgs)))                
+    print("{} Files downloaded".format(count)                
 
 
 
