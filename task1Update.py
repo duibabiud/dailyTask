@@ -3,7 +3,7 @@ import email
 import os
 import xlrd
 
-user = input("Plesae enter Gmail id : ")
+user = input("Plesae enter Outlook email id : ")
 password = input("Please enter your password : ")
 imap_url = 'imap.outlook.com'
 
